@@ -64,17 +64,15 @@ export default class MuteCommand extends BaseCommand {
 		}
 		const muteDmEmbed = new MessageEmbed();
 		if (avatar) {
-			muteDmEmbed
-				.setAuthor("csgo.srb Moderation Team", avatar)
-				.setThumbnail(avatar);
+			muteDmEmbed.setAuthor("csgo.srb Moderation Team", avatar);
 		} else {
 			muteDmEmbed.setAuthor("csgo.srb Moderation Team");
 		}
 		muteDmEmbed
-			.addField(
-				`You have been Muted on the ${message.guild.name} server!`,
-				`**Reason:**\n ${reason}`
+			.setDescription(
+				`**You have been Muted on the ${message.guild.name} server!**`
 			)
+			.addField("Reason:", reason)
 			.setTimestamp()
 			.setColor("#7FE5F0");
 		await member.send(muteDmEmbed).catch((err) => {
