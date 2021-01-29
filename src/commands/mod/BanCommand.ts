@@ -1,11 +1,8 @@
 import { Message, MessageEmbed, TextChannel } from "discord.js";
-import { send } from "process";
 import DiscordClient from "../../client/client";
 import getUser from "../../utils/functions/userfn";
+import { modLogChannelId } from "../../utils/var";
 import BaseCommand from "../../utils/structures/BaseCommand";
-
-const ADMIN_LOG_CHANNEL = "803993858030960644";
-
 export default class BanCommand extends BaseCommand {
 	constructor() {
 		super("ban", "Bans a guild member by their ID or mention", []);
@@ -47,7 +44,7 @@ export default class BanCommand extends BaseCommand {
 			reason = "No reason specified.";
 		}
 		const channel = message.guild.channels.cache.get(
-			ADMIN_LOG_CHANNEL
+			modLogChannelId
 		) as TextChannel;
 		const avatar = client.user?.avatarURL();
 		const userAvatar = member.user.avatarURL();
