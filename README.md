@@ -5,7 +5,7 @@
 ![GitHub stars](https://img.shields.io/github/stars/Nohty/discord-bot-typescript?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/Nohty/discord-bot-typescript?style=social)
 
-discord-bot-typescript is a discord bot for the server [CS](https://discord.gg/nhNavuEbGq).
+discord-bot-typescript is a discord bot for the server [csgo.srb](https://discord.gg/nhNavuEbGq).
 
 This bot is used for moderation, welcome, role and leveling.
 

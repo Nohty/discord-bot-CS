@@ -3,9 +3,10 @@ import DiscordClient from "../../client/client";
 import getUser from "../../utils/functions/userfn";
 import { modLogChannelId } from "../../utils/var";
 import BaseCommand from "../../utils/structures/BaseCommand";
-export default class BanCommand extends BaseCommand {
+
+export default class KickCommand extends BaseCommand {
 	constructor() {
-		super("ban", "Bans a guild member by their ID or mention", []);
+		super("kick", "Kicks a guild member by their ID or mention.", []);
 	}
 
 	async run(client: DiscordClient, message: Message, args: Array<string>) {
@@ -13,12 +14,12 @@ export default class BanCommand extends BaseCommand {
 			message.channel.send("You can not use this command in dm.");
 			return;
 		}
-		if (!message.member?.hasPermission("BAN_MEMBERS")) {
+		if (!message.member?.hasPermission("KICK_MEMBERS")) {
 			message.reply("I am sorry, but you can not use this command.");
 			return;
 		}
-		if (!message.guild?.me?.hasPermission("BAN_MEMBERS")) {
-			message.reply("I am sorry, but I can not ban members.");
+		if (!message.guild?.me?.hasPermission("KICK_MEMBERS")) {
+			message.reply("I am sorry, but I can not kick members.");
 			return;
 		}
 		if (!args[0]) {
@@ -28,7 +29,7 @@ export default class BanCommand extends BaseCommand {
 		const user = getUser(client, args[0]);
 		if (!user) {
 			message.channel.send(
-				"User not found. Please specify a valid User ID or mention the person you would like to ban."
+				"User not found. Please specify a valid User ID or mention the person you would like to kick."
 			);
 			return;
 		}
@@ -39,7 +40,7 @@ export default class BanCommand extends BaseCommand {
 			);
 			return;
 		}
-		if (member.hasPermission("BAN_MEMBERS")) {
+		if (member.hasPermission("KICK_MEMBERS")) {
 			message.channel.send("❌ That user is a mod/admin, I can't do that.");
 			return;
 		}
@@ -52,52 +53,50 @@ export default class BanCommand extends BaseCommand {
 		) as TextChannel;
 		const avatar = client.user?.avatarURL();
 		const userAvatar = member.user.avatarURL();
-		const banDmEmbed = new MessageEmbed();
+		const kickDmEmbed = new MessageEmbed();
 		if (avatar) {
-			banDmEmbed
+			kickDmEmbed
 				.setAuthor("csgo.srb Moderation Team", avatar)
 				.setThumbnail(avatar);
 		} else {
-			banDmEmbed.setAuthor("csgo.srb Moderation Team");
+			kickDmEmbed.setAuthor("csgo.srb Moderation Team");
 		}
-		banDmEmbed
+		kickDmEmbed
 			.addField(
-				`You have been banned from the ${message.guild.name} server!`,
+				`You have been kicked from the ${message.guild.name} server!`,
 				`**Reason:**\n ${reason}`
 			)
 			.setTimestamp()
 			.setColor("#7FE5F0");
-		await member.send(banDmEmbed).catch((err) => {
+		await member.send(kickDmEmbed).catch((err) => {
 			console.log(err);
 			if (channel) {
 				channel.send(`⚠ Unable to contact **${user.tag}**.`);
 			}
 		});
 		await member
-			.ban({
-				reason,
-			})
+			.kick(reason)
 			.then(() => {
-				const banEmbed = new MessageEmbed()
-					.setDescription(`✅ ***${member.user.tag} was banned***`)
+				const kickEmbed = new MessageEmbed()
+					.setDescription(`✅ ***${member.user.tag} was kicked***`)
 					.setColor("GREEN");
-				message.channel.send(banEmbed);
+				message.channel.send(kickEmbed);
 				if (channel) {
-					const banLogEmbed = new MessageEmbed();
+					const kickLogEmbed = new MessageEmbed();
 					if (userAvatar) {
-						banLogEmbed
-							.setAuthor("Member Banned", userAvatar)
+						kickLogEmbed
+							.setAuthor("Member Kicked", userAvatar)
 							.setThumbnail(userAvatar);
 					} else {
-						banLogEmbed.setAuthor("Member Banned");
+						kickLogEmbed.setAuthor("Member Kicked");
 					}
-					banLogEmbed
+					kickLogEmbed
 						.setColor("RED")
 						.setTimestamp()
 						.addField("User", `<@${member.user.id}> ${member.user.tag}`)
-						.addField("Banned By", `<@${message.author.id}>`)
+						.addField("Kicked By", `<@${message.author.id}>`)
 						.addField("Reason", reason);
-					channel.send(banLogEmbed);
+					channel.send(kickLogEmbed);
 				}
 			})
 			.catch((err) => {
