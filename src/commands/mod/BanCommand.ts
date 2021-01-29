@@ -54,16 +54,18 @@ export default class BanCommand extends BaseCommand {
 		const userAvatar = member.user.avatarURL();
 		const banDmEmbed = new MessageEmbed();
 		if (avatar) {
-			banDmEmbed
-				.setAuthor("csgo.srb Moderation Team", avatar)
-				.setThumbnail(avatar);
+			banDmEmbed.setAuthor("csgo.srb Moderation Team", avatar);
 		} else {
 			banDmEmbed.setAuthor("csgo.srb Moderation Team");
 		}
 		banDmEmbed
+			.setDescription(
+				`**You have been banned from the ${message.guild.name} server!**`
+			)
+			.addField("Reason:", reason)
 			.addField(
-				`You have been banned from the ${message.guild.name} server!`,
-				`**Reason:**\n ${reason}`
+				"Can I appeal a ban?",
+				"We allow all banned users a single appeal. This will be reviewed by our staff who will decide if you can rejoin the server\n[Ban Appeal](https://forms.gle/AYUw2KT1Ekmd3uQT8)"
 			)
 			.setTimestamp()
 			.setColor("#7FE5F0");

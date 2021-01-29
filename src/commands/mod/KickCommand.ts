@@ -57,15 +57,14 @@ export default class KickCommand extends BaseCommand {
 		if (avatar) {
 			kickDmEmbed
 				.setAuthor("csgo.srb Moderation Team", avatar)
-				.setThumbnail(avatar);
 		} else {
 			kickDmEmbed.setAuthor("csgo.srb Moderation Team");
 		}
 		kickDmEmbed
-			.addField(
-				`You have been kicked from the ${message.guild.name} server!`,
-				`**Reason:**\n ${reason}`
+			.setDescription(
+				`**You have been kicked from the ${message.guild.name} server!**`
 			)
+			.addField("Reason:", reason)
 			.setTimestamp()
 			.setColor("#7FE5F0");
 		await member.send(kickDmEmbed).catch((err) => {
