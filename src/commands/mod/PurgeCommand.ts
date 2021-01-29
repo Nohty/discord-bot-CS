@@ -35,6 +35,11 @@ export default class PurgeCommand extends BaseCommand {
 					"The maximum amount of messages that you can delete is `500`"
 				);
 				return;
+			} else if (amount < 1) {
+				message.reply(
+					"The minimum amount of messages that you can delete is `1`"
+				);
+				return;
 			}
 		}
 		amount++;
