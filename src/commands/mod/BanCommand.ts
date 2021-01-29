@@ -9,6 +9,10 @@ export default class BanCommand extends BaseCommand {
 	}
 
 	async run(client: DiscordClient, message: Message, args: Array<string>) {
+		if (message.channel.type === "dm") {
+			message.channel.send("You can not use this command in dm.");
+			return;
+		}
 		if (!message.member?.hasPermission("BAN_MEMBERS")) {
 			message.reply("I am sorry, but you can not use this command.");
 			return;
