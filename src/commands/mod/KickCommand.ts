@@ -77,21 +77,21 @@ export default class KickCommand extends BaseCommand {
 					.setDescription(`✅ ***${member.user.tag} was kicked***`)
 					.setColor("GREEN");
 				message.channel.send(kickEmbed);
-				const kickLogEmbed = new MessageEmbed();
-				if (userAvatar) {
-					kickLogEmbed
-						.setAuthor("Member Kicked", userAvatar)
-						.setThumbnail(userAvatar);
-				} else {
-					kickLogEmbed.setAuthor("Member Kicked");
-				}
-				kickLogEmbed
-					.setColor("RED")
-					.setTimestamp()
-					.addField("User", `<@${member.user.id}> ${member.user.tag}`)
-					.addField("Kicked By", `<@${message.author.id}>`)
-					.addField("Reason", reason);
 				if (channel) {
+					const kickLogEmbed = new MessageEmbed();
+					if (userAvatar) {
+						kickLogEmbed
+							.setAuthor("Member Kicked", userAvatar)
+							.setThumbnail(userAvatar);
+					} else {
+						kickLogEmbed.setAuthor("Member Kicked");
+					}
+					kickLogEmbed
+						.setColor("RED")
+						.setTimestamp()
+						.addField("User", `<@${member.user.id}> ${member.user.tag}`)
+						.addField("Kicked By", `<@${message.author.id}>`)
+						.addField("Reason", reason);
 					channel.send(kickLogEmbed);
 				}
 			})

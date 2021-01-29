@@ -78,21 +78,21 @@ export default class BanCommand extends BaseCommand {
 					.setDescription(`✅ ***${member.user.tag} was banned***`)
 					.setColor("GREEN");
 				message.channel.send(banEmbed);
-				const banLogEmbed = new MessageEmbed();
-				if (userAvatar) {
-					banLogEmbed
-						.setAuthor("Member Banned", userAvatar)
-						.setThumbnail(userAvatar);
-				} else {
-					banLogEmbed.setAuthor("Member Banned");
-				}
-				banLogEmbed
-					.setColor("RED")
-					.setTimestamp()
-					.addField("User", `<@${member.user.id}> ${member.user.tag}`)
-					.addField("Banned By", `<@${message.author.id}>`)
-					.addField("Reason", reason);
 				if (channel) {
+					const banLogEmbed = new MessageEmbed();
+					if (userAvatar) {
+						banLogEmbed
+							.setAuthor("Member Banned", userAvatar)
+							.setThumbnail(userAvatar);
+					} else {
+						banLogEmbed.setAuthor("Member Banned");
+					}
+					banLogEmbed
+						.setColor("RED")
+						.setTimestamp()
+						.addField("User", `<@${member.user.id}> ${member.user.tag}`)
+						.addField("Banned By", `<@${message.author.id}>`)
+						.addField("Reason", reason);
 					channel.send(banLogEmbed);
 				}
 			})
