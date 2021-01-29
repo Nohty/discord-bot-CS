@@ -9,6 +9,10 @@ export default class RollCommand extends BaseCommand {
 	}
 
 	async run(client: DiscordClient, message: Message, args: Array<string>) {
+		if (message.channel.type === "dm") {
+			message.channel.send("You can not use this command in dm.");
+			return;
+		}
 		if (args[0]) {
 			message.reply(`rolled a ${rollDice(parseInt(args[0]))}`);
 		} else {
