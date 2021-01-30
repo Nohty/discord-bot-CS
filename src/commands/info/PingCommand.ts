@@ -4,7 +4,7 @@ import BaseCommand from "../../utils/structures/BaseCommand";
 
 export default class PingCommand extends BaseCommand {
 	constructor() {
-		super("ping", "Displays the Latency.", []);
+		super("ping", "info", [], "Displays the Latency.", []);
 	}
 
 	async run(client: DiscordClient, message: Message, args: Array<string>) {

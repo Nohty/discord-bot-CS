@@ -5,7 +5,9 @@ export default abstract class BaseCommand {
 	constructor(
 		private name: string,
 		private category: string,
-		private aliases: Array<string>
+		private aliases: Array<string>,
+		private description: string,
+		private usage: Array<string>
 	) {}
 
 	getName(): string {
@@ -16,6 +18,12 @@ export default abstract class BaseCommand {
 	}
 	getAliases(): Array<string> {
 		return this.aliases;
+	}
+	getDescription(): string {
+		return this.description;
+	}
+	getUsage(): Array<string> {
+		return this.usage;
 	}
 
 	abstract run(

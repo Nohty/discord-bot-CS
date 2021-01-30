@@ -6,7 +6,7 @@ import BaseCommand from "../../utils/structures/BaseCommand";
 
 export default class MuteCommand extends BaseCommand {
 	constructor() {
-		super("mute", "Mutes a user.", []);
+		super("mute", "mod", [], "Mutes a user.", []);
 	}
 
 	async run(client: DiscordClient, message: Message, args: Array<string>) {

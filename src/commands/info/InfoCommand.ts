@@ -5,7 +5,7 @@ const pk = require("../../../package");
 
 export default class VersionCommand extends BaseCommand {
 	constructor() {
-		super("info", "Get information about the bot.", []);
+		super("info", "info", [], "Get information about the bot.", []);
 	}
 
 	async run(client: DiscordClient, message: Message, args: Array<string>) {

@@ -6,7 +6,7 @@ import BaseCommand from "../../utils/structures/BaseCommand";
 
 export default class UnmuteCommand extends BaseCommand {
 	constructor() {
-		super("unmute", "Unmute a user.", []);
+		super("unmute", "mod", [], "Unmute a user.", []);
 	}
 
 	async run(client: DiscordClient, message: Message, args: Array<string>) {

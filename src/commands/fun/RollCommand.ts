@@ -5,7 +5,7 @@ import BaseCommand from "../../utils/structures/BaseCommand";
 
 export default class RollCommand extends BaseCommand {
 	constructor() {
-		super("roll", "Rolls a dice", ["rolldice"]);
+		super("roll", "fun", ["rolldice"], "Rolls a dice", []);
 	}
 
 	async run(client: DiscordClient, message: Message, args: Array<string>) {
