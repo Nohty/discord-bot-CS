@@ -4,7 +4,7 @@ import BaseCommand from "../../utils/structures/BaseCommand";
 
 export default class HelpCommand extends BaseCommand {
 	constructor() {
-		super("help", "Shows help about the commands.", []);
+		super("help", "help", [], "Shows help about the commands.", []);
 	}
 
 	async run(client: DiscordClient, message: Message, args: Array<string>) {
@@ -16,6 +16,11 @@ export default class HelpCommand extends BaseCommand {
 				message.channel.send(`${args[0]} is not a command`);
 			} else {
 				message.channel.send(`Help page for ${args[0]} (in development)`);
+				console.log(
+					command.getAliases(),
+					command.getCategory(),
+					command.getName()
+				);
 			}
 		}
 	}
