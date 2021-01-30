@@ -1,6 +1,7 @@
 {
   "name": "discord-bot-typescript",
-  "version": "0.0.6",
+  "version": "0.0.7",
+  "owners":["Nohty#0001"],
   "main": "bot.js",
   "license": "MIT",
   "scripts": {
