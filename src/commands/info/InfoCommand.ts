@@ -17,6 +17,7 @@ export default class VersionCommand extends BaseCommand {
 			infoEmbed.setAuthor(client.user?.username);
 		}
 		infoEmbed
+			.setColor("BLUE")
 			.addField("Version", pk.version, true)
 			.addField("Library", "discord.js", true)
 			.addField("Language", "Typescript", true)
