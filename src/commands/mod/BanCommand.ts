@@ -5,7 +5,9 @@ import { modLogChannelId } from "../../utils/var";
 import BaseCommand from "../../utils/structures/BaseCommand";
 export default class BanCommand extends BaseCommand {
 	constructor() {
-		super("ban", "Bans a guild member by their ID or mention", []);
+		super("ban", "mod", [], "Bans a guild member by their ID or mention", [
+			"ban <userID | mention> [reason]",
+		]);
 	}
 
 	async run(client: DiscordClient, message: Message, args: Array<string>) {

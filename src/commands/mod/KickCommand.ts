@@ -6,7 +6,9 @@ import BaseCommand from "../../utils/structures/BaseCommand";
 
 export default class KickCommand extends BaseCommand {
 	constructor() {
-		super("kick", "Kicks a guild member by their ID or mention.", []);
+		super("kick", "mod", [], "Kicks a guild member by their ID or mention.", [
+			"kick <userID | mention> [reason]",
+		]);
 	}
 
 	async run(client: DiscordClient, message: Message, args: Array<string>) {
@@ -55,8 +57,7 @@ export default class KickCommand extends BaseCommand {
 		const userAvatar = member.user.avatarURL();
 		const kickDmEmbed = new MessageEmbed();
 		if (avatar) {
-			kickDmEmbed
-				.setAuthor("csgo.srb Moderation Team", avatar)
+			kickDmEmbed.setAuthor("csgo.srb Moderation Team", avatar);
 		} else {
 			kickDmEmbed.setAuthor("csgo.srb Moderation Team");
 		}

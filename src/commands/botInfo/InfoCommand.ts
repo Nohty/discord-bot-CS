@@ -5,7 +5,7 @@ const pk = require("../../../package");
 
 export default class VersionCommand extends BaseCommand {
 	constructor() {
-		super("info", "Get information about the bot.", []);
+		super("info", "botinfo", [], "Get information about the bot.", ["info"]);
 	}
 
 	async run(client: DiscordClient, message: Message, args: Array<string>) {
@@ -17,6 +17,7 @@ export default class VersionCommand extends BaseCommand {
 			infoEmbed.setAuthor(client.user?.username);
 		}
 		infoEmbed
+			.setColor("BLUE")
 			.addField("Version", pk.version, true)
 			.addField("Library", "discord.js", true)
 			.addField("Language", "Typescript", true)

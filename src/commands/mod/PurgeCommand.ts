@@ -5,9 +5,13 @@ import { modLogChannelId } from "../../utils/var";
 
 export default class PurgeCommand extends BaseCommand {
 	constructor() {
-		super("purge", "Removes multiple messages from a channel (default 5).", [
-			"clear",
-		]);
+		super(
+			"purge",
+			"mod",
+			["clear"],
+			"Removes multiple messages from a channel (default 5).",
+			["purge [amount]"]
+		);
 	}
 
 	async run(client: DiscordClient, message: Message, args: Array<string>) {
