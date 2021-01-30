@@ -6,13 +6,9 @@ import BaseCommand from "../../utils/structures/BaseCommand";
 
 export default class KickCommand extends BaseCommand {
 	constructor() {
-		super(
-			"kick",
-			"mod",
-			[],
-			"Kicks a guild member by their ID or mention.",
-			[]
-		);
+		super("kick", "mod", [], "Kicks a guild member by their ID or mention.", [
+			"kick <userID | mention> [reason]",
+		]);
 	}
 
 	async run(client: DiscordClient, message: Message, args: Array<string>) {

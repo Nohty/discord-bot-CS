@@ -6,13 +6,9 @@ import BaseCommand from "../../utils/structures/BaseCommand";
 
 export default class UnbanCommand extends BaseCommand {
 	constructor() {
-		super(
-			"unban",
-			"mod",
-			[],
-			"Unbans a guild member by their ID or mention.",
-			[]
-		);
+		super("unban", "mod", [], "Unbans a guild member by their ID or mention.", [
+			"unban <userID | mention>",
+		]);
 	}
 
 	async run(client: DiscordClient, message: Message, args: Array<string>) {

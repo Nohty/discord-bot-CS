@@ -4,7 +4,7 @@ import BaseCommand from "../../utils/structures/BaseCommand";
 
 export default class HelpCommand extends BaseCommand {
 	constructor() {
-		super("help", "help", [], "Shows help about the commands.", []);
+		super("help", "help", [], "Shows help about the commands.", ["help [command]"]);
 	}
 
 	async run(client: DiscordClient, message: Message, args: Array<string>) {

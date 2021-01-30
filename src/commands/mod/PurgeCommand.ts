@@ -10,7 +10,7 @@ export default class PurgeCommand extends BaseCommand {
 			"mod",
 			["clear"],
 			"Removes multiple messages from a channel (default 5).",
-			[]
+			["purge [amount]"]
 		);
 	}
 
