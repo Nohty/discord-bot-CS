@@ -1,11 +1,11 @@
-# discord-bot-typescript
+# discord-bot-CS
 
-![GitHub repo size](https://img.shields.io/github/repo-size/Nohty/discord-bot-typescript)
-![GitHub contributors](https://img.shields.io/github/contributors/Nohty/discord-bot-typescript)
-![GitHub stars](https://img.shields.io/github/stars/Nohty/discord-bot-typescript?style=social)
-![GitHub forks](https://img.shields.io/github/forks/Nohty/discord-bot-typescript?style=social)
+![GitHub repo size](https://img.shields.io/github/repo-size/Nohty/discord-bot-CS)
+![GitHub contributors](https://img.shields.io/github/contributors/Nohty/discord-bot-CS)
+![GitHub stars](https://img.shields.io/github/stars/Nohty/discord-bot-CS?style=social)
+![GitHub forks](https://img.shields.io/github/forks/Nohty/discord-bot-CS?style=social)
 
-discord-bot-typescript is a discord bot for the server [csgo.srb](https://discord.gg/nhNavuEbGq).
+discord-bot-CS is a discord bot for the server [csgo.srb](https://discord.gg/nhNavuEbGq).
 
 This bot is used for moderation, welcome, role and leveling.
 
@@ -14,9 +14,9 @@ This bot is used for moderation, welcome, role and leveling.
 Before you begin, ensure you have met the following requirements:
 * You have installed the latest version of [Node.js](https://nodejs.org/en/)
 
-## Installing discord-bot-typescript
+## Installing discord-bot-CS
 
-To install discord-bot-typescript, follow these steps:
+To install discord-bot-CS, follow these steps:
 1. Clone the master branch.
 2. Run `npm install .` or `yarn` in the folder to install all required packages.
 3. Create a `.env` file as the example below.
@@ -25,15 +25,15 @@ BOT_TOKEN=<Your bot token>
 BOT_PREFIX=<Your bot prefix>
 ```
 
-## Using discord-bot-typescript
-To use discord-bot-typescript in development, Run: `npm dev` or `yarn dev`  
-To use discord-bot-typescript in a production environment, follow these steps:
+## Using discord-bot-CS
+To use discord-bot-CS in development, Run: `npm dev` or `yarn dev`  
+To use discord-bot-CS in a production environment, follow these steps:
 1. Run `npm build` or `yarn build`
 2. Run `npm start` or `yarn start`
 
-## Contributing to discord-bot-typescript
+## Contributing to discord-bot-CS
 
-To contribute to discord-bot-typescript, follow these steps:
+To contribute to discord-bot-CS, follow these steps:
 
 1. Fork this repository.
 2. Create a branch: `git checkout -b <branch_name>`.
@@ -50,4 +50,4 @@ Discord: Nohty#0001
 
 ## License
 
-This project uses the following license: [MIT](https://github.com/Nohty/discord-bot-typescript/blob/master/LICENSE)
+This project uses the following license: [MIT](https://github.com/Nohty/discord-bot-cs/blob/master/LICENSE)
