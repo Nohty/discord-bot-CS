@@ -17,8 +17,8 @@ export default class GuildMemberUpdateEvent extends BaseEvent {
 		sendBoostMessage(
 			oldMember,
 			newMember,
-			"805419992543658025",
-			"803993858030960640"
+			"805040861032218655",
+			"808790837378940988"
 		);
 	}
 }
